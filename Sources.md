@@ -1,9 +1,9 @@
 # Sources
 
 
-Knuth Morris Pratt
+Knuth Morris Pratt <br>
 https://www.ics.uci.edu/~eppstein/161/960227.html
 
-Boyer Moore
+Boyer Moore <br>
 https://medium.com/@siddharth.21/the-boyer-moore-string-search-algorithm-674906cab162
 https://www.cs.jhu.edu/~langmea/resources/lecture_notes/strings_matching_boyer_moore.pdf
