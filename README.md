@@ -1,2 +1,2 @@
 # Final Project
-This final project is a collabrative effort by: Ben Thomas, Robert Fitzgerald, Lindsey Cairone
+This final project is a collabrative effort by: Ben Thomas, Robert Fitzgerald, Lyndsey Cairone
