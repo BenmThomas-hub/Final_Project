@@ -4,4 +4,7 @@ This final project is a collabrative effort by: Ben Thomas, Robert Fitzgerald, L
 <br>
 # String Search II
 (Explanation of what string search is)
-sfyugsdg
+<br>
+<br>
+# Instructions
+(Instructions on how the program is ran)
