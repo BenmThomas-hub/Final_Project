@@ -4,8 +4,8 @@
 
 class Timer {
 	private:
-		std::chrono::time_point<std::chrono::system_clock> start;
-		std::chrono::time_point<std::chrono::system_clock> end;
+		std::chrono::time_point<std::chrono::system_clock> start_point;
+		std::chrono::time_point<std::chrono::system_clock> end_point;
 		double duration;
 
 	public:
@@ -21,11 +21,11 @@ Timer::Timer() {}
 Timer::~Timer() {}
 
 void Timer::start() {
-	start = std::chrono::system_clock::now();
+	start_point = std::chrono::system_clock::now();
 }
 
 void Timer::stop() {
-	end = std::chrono::system_clock::now();
+	end_point = std::chrono::system_clock::now();
 }
 
 double Timer::getDuration() {
