@@ -53,7 +53,7 @@ void KMP(std::string str,std::string txt){
 		}
 
         if (j == strLength) {
-            std::cout<< i - strLength << ' ';
+            std::cout << i - strLength << ' ';
             j = lps[j - 1];
         }
 
@@ -74,26 +74,28 @@ void KMP(std::string str,std::string txt){
 /////////////////////////////////////////////////////////////////////////////
 
 //function that creates an array that gathers all known characters from the string into an array
-void badCharRule(std::string str, int lgth, int bad[256]){
+//creating an array of "true or false sequences" allowing the algorithm to go through the character rules
+void CharRule(std::string str, int lgth, int cRule[256]){
     for (int i = 0; i < 256; i++)
-        bad[i] = -1;
+        cRule[i] = -1;
 
 
     for (int i = 0; i < lgth; i++)
-        bad[(int) str[i]] = i;
+        cRule[(int) str[i]] = i;
 }
 
 void BM(std::string str, std::string txt) {
     int strLength = str.size();
     int txtLength = txt.size();
 
-    int bad[256];
+    int cRule[256];
 
-    badCharRule(str, strLength, bad);
+    CharRule(str, strLength, cRule);
 
     int shift = 0;
 
-    //uses the bad character rule to skip alignments that are known to be mismatched
+    //uses the character rules to skip alignments that are known to be mismatched
+    //and check the matched alignments
     while(shift <= (txtLength - strLength))
     {
         int j = strLength - 1;
@@ -105,15 +107,14 @@ void BM(std::string str, std::string txt) {
             {
                 std::cout << shift << " ";
 
-                shift += (shift + strLength < txtLength)? strLength - bad[txt[shift + strLength]] : 1;
+                shift += (shift + strLength < txtLength)? strLength - cRule[txt[shift + strLength]] : 1;
             }
             else
-                shift += std::max(1, j - bad[txt[shift + j]]);
+                shift += std::max(1, j - cRule[txt[shift + j]]);
     }
 }
 
 void terminal(std::string & choice){
-
 
     std::cout << std::endl;
     std::cout << "Knuth Morris Pratt and Boyer Moore Algorithms and Benchmarking" << std::endl;
@@ -125,6 +126,7 @@ void terminal(std::string & choice){
     std::cout << "--------------------------------------------------------------" << std::endl;
     std::cout << std::endl;
     std::cin >> choice;
+    std::cout << std::endl;
 
 }
 
@@ -139,20 +141,21 @@ int main(){
 
     while (choice != "x" || choice != "X"){
 
-
         terminal(choice);
-
 
         if (choice == "a" || choice == "A"){
 
             std::cout << "Input text:" << std::endl;
             std::cin >> text;
+            std::cout << std::endl;
 
             std::cout << "Input searched string:" << std::endl;
             std::cin >> str;
+            std::cout << std::endl;
 
             std::cout << "Algorithm: (KMP or BM)" << std::endl;
             std::cin >> alg;
+            std::cout << std::endl;
 
             if (alg == "KMP" || alg == "kmp"){
 
@@ -185,7 +188,6 @@ int main(){
             }
 
         }
-
 
         else if (choice == "b" || choice == "B"){
             std::ofstream outFile ("benchmark.csv");
@@ -221,19 +223,16 @@ int main(){
 			std::cout << std::endl;
         }
 
-
         else if (choice == "x" || choice == "X"){
             std::cout << "Goodbye!" << std::endl;
             return 0;
         }
-
 
         else {
             std::cout << "invalid input" << std::endl;
         }
 
     }
-
 
     return 0;
 }
