@@ -116,6 +116,9 @@ void BM(std::string str, std::string txt) {
 
 void terminal(std::string & choice){
 
+    std::string text, str, alg;
+    double duration, duration2;
+
     std::cout << std::endl;
     std::cout << "Knuth Morris Pratt and Boyer Moore Algorithms and Benchmarking" << std::endl;
     std::cout << "--------------------------------------------------------------" << std::endl;
@@ -127,22 +130,7 @@ void terminal(std::string & choice){
     std::cout << std::endl;
     std::cin >> choice;
     std::cout << std::endl;
-
-}
-
-
-int main(){
-
-    std::string text, str, alg;
-
-    std::string choice = "x";
-
-    double duration, duration2;
-
-    while (choice != "x" || choice != "X"){
-
-        terminal(choice);
-
+    
         if (choice == "a" || choice == "A"){
 
             std::cout << "Input text:" << std::endl;
@@ -225,13 +213,22 @@ int main(){
 
         else if (choice == "x" || choice == "X"){
             std::cout << "Goodbye!" << std::endl;
-            return 0;
         }
 
         else {
             std::cout << "invalid input" << std::endl;
         }
+    
+}
 
+
+int main(){
+
+    std::string choice = "";
+
+    while (choice.compare("X") != 0){
+
+        terminal(choice);
     }
 
     return 0;
