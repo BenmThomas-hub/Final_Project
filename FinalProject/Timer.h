@@ -32,7 +32,5 @@ double Timer::getDuration() {
 	
 	duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end_point - start_point).count();
 	
-	//duration = duration / 1000;
-	
 	return duration;
 }
